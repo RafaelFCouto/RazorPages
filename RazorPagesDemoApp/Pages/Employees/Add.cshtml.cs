@@ -28,7 +28,7 @@ namespace RazorPagesDemoApp.Pages.Employees
 
         }
 
-        public void OnPost() 
+        public IActionResult OnPost() 
         {
             // Convert View Model to DomainModel
 
@@ -46,6 +46,10 @@ namespace RazorPagesDemoApp.Pages.Employees
             _dbContext.SaveChanges();
 
             ViewData["Message"] = "Employee created successsfully!";
+
+            return RedirectToPage("/Employees/Add");
+
+            return Page();
         }
     }
 }
